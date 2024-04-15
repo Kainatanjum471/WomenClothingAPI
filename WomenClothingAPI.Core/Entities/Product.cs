@@ -1,6 +1,8 @@
-﻿namespace WomenClothingAPI.Models
+﻿using WomenClothingAPI.Core.Common;
+
+namespace WomenClothingAPI.Models
 {
-    public class Product
+    public class Product:BaseEntity<int>
     {
         public int Id { get; set; }
         public string Name { get; set; }

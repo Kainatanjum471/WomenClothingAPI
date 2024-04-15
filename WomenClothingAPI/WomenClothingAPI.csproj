@@ -16,4 +16,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WomenClothingAPI.Application\WomenClothingAPI.Application.csproj" />
+    <ProjectReference Include="..\WomenClothingAPI.Core\WomenClothingAPI.Core.csproj" />
+    <ProjectReference Include="..\WomenClothingAPI.Infrastructure\WomenClothingAPI.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

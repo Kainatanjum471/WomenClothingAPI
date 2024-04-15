@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WomenClothingAPI.Application.DTOs;
+using WomenClothingAPI.Core;
 using WomenClothingAPI.Models;
 using WomenClothingAPI.Services;
 
@@ -7,7 +9,6 @@ namespace WomenClothingAPI.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _productService;
-
         public ProductsController(IProductService productService)             
         {
             _productService = productService;
@@ -18,7 +19,7 @@ namespace WomenClothingAPI.Controllers
         public async Task<IActionResult> GetProducts(int page, int pageSize)
         {
             var products = await _productService.GetProductsAsync(page, pageSize);
-            return Ok(products);
+            return Ok(products.Data);
         }
 
         // Get a product by id
@@ -30,12 +31,12 @@ namespace WomenClothingAPI.Controllers
             {
                 return NotFound();
             }
-            return Ok(product);
+            return Ok(product.Data);
         }
 
         // Add a new product
         [HttpPost("add")]
-        public async Task<IActionResult> AddProduct([FromBody] Product product)
+        public async Task<IActionResult> AddProduct([FromBody] ProductDto product)
         {
             if (!ModelState.IsValid)
             {
@@ -44,12 +45,12 @@ namespace WomenClothingAPI.Controllers
 
             var addedProduct = await _productService.AddProductAsync(product);
 
-            return CreatedAtAction(nameof(GetProduct), new { id = addedProduct.Id }, addedProduct);
+            return CreatedAtAction(nameof(GetProduct), new { id = addedProduct.Data }, addedProduct);
         }
 
         // Update an existing product
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateProduct(int id, [FromBody] Product updatedProduct)
+        public async Task<IActionResult> UpdateProduct(int id, [FromBody] ProductDto updatedProduct)
         {
             if (id != updatedProduct.Id)
             {
@@ -57,7 +58,7 @@ namespace WomenClothingAPI.Controllers
             }
 
             var result = await _productService.UpdateProductAsync(id, updatedProduct);
-            if (!result)
+            if (!result.Success)
             {
                 return NotFound();
             }
@@ -70,7 +71,7 @@ namespace WomenClothingAPI.Controllers
         public async Task<IActionResult> DeleteProduct(int id)
         {
             var result = await _productService.DeleteProductAsync(id);
-            if (!result)
+            if (!result.Success)
             {
                 return NotFound();
             }

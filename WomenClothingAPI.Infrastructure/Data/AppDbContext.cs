@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 using WomenClothingAPI.Models;
 
-namespace WomenClothingAPI.Data
+namespace WomenClothingAPI.Infrastructure.Data
 {
     public class AppDbContext : DbContext
     {
