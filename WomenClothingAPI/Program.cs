@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using WomenClothingAPI.Application.Persistence;
 using WomenClothingAPI.Application.Profiles;
+using WomenClothingAPI.Infrastructure;
 using WomenClothingAPI.Infrastructure.Data;
 using WomenClothingAPI.Infrastructure.Repositories;
-using WomenClothingAPI.Infrastructure.UnitOfWork;
 using WomenClothingAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);

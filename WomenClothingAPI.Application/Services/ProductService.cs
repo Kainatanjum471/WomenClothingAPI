@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Logging;
 using WomenClothingAPI.Application.DTOs;
+using WomenClothingAPI.Core;
 using WomenClothingAPI.Core.Common;
+using WomenClothingAPI.Infrastructure;
 using WomenClothingAPI.Models;
 
 namespace WomenClothingAPI.Services

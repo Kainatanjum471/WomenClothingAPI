@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WomenClothingAPI.Infrastructure.Repositories;
 
-namespace WomenClothingAPI.Infrastructure.UnitOfWork.UnitOfWork
+namespace WomenClothingAPI.Infrastructure
 {
     public interface IUnitOfWork : IDisposable
     {

@@ -1,7 +1,7 @@
 ﻿using WomenClothingAPI.Infrastructure.Data;
 using WomenClothingAPI.Infrastructure.Repositories;
 
-namespace WomenClothingAPI.Infrastructure.UnitOfWork
+namespace WomenClothingAPI.Infrastructure
 {
     public class UnitOfWork : IUnitOfWork
     {
